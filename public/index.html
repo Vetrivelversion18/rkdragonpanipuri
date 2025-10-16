@@ -1,1 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK DRAGON PANIPURI - Loyalty Card System</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
 
+            /* Dragon Theme Colors */
+            --dragon-red: #8B0000;
+            --dragon-gold: #FFD700;
+            --dragon-black: #000000;
+            --dragon-orange: #FF4500;
+            --dragon-crimson: #DC143C;
+
+            /* Semantic Colors */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--dragon-red);
+            --color-primary-hover: var(--dragon-crimson);
+            --color-secondary: var(--dragon-gold);
+            --color-border: rgba(139, 0, 0, 0.2);
+
+            /* Typography */
+            --font-family-base: "Arial", "Helvetica", sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 600;
+
+            /* Spacing */
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --radius-full: 50px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF4500 100%);
+            min-height: 100vh;
+            color: var(--color-text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-20);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--dragon-gold);
+            text-align: center;
+            padding: var(--space-24);
+            margin-bottom: var(--space-32);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: var(--space-8);
+        }
+
+        .dragon-emoji {
+            font-size: 3rem;
+            margin: 0 var(--space-16);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: var(--space-24);
+            margin-bottom: var(--space-24);
+            border: 3px solid var(--dragon-gold);
+        }
+
+        .card h2 {
+            color: var(--dragon-red);
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-16);
+            text-align: center;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: var(--space-16);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-8);
+            color: var(--dragon-red);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-12);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--dragon-gold);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: var(--space-12) var(--space-24);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            margin: var(--space-8);
+        }
+
+        .btn-primary {
+            background: var(--dragon-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dragon-crimson);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--dragon-gold);
+            color: var(--dragon-black);
+        }
+
+        .btn-secondary:hover {
+            background: #FFE55C;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* ID Card */
+        .id-card {
+            background: linear-gradient(135deg, var(--dragon-red) 0%, var(--dragon-crimson) 100%);
+            color: white;
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 350px;
+            margin: var(--space-20) auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .id-card::before {
+            content: '🐉';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 4rem;
+            opacity: 0.2;
+        }
+
+        .id-card-header {
+            background: var(--dragon-gold);
+            color: var(--dragon-black);
+            padding: var(--space-12);
+            margin: calc(var(--space-24) * -1) calc(var(--space-24) * -1) var(--space-16) calc(var(--space-24) * -1);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+        }
+
+        .customer-id {
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--space-8);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            margin: var(--space-12) 0;
+        }
+
+        /* Stamping Grid */
+        .stamps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-16);
+            margin: var(--space-20) 0;
+        }
+
+        .stamp-slot {
+            background: #f8f9fa;
+            border: 3px dashed #ccc;
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stamp-slot:hover {
+            border-color: var(--dragon-gold);
+            transform: scale(1.05);
+        }
+
+        .stamp-slot.stamped {
+            background: linear-gradient(135deg, var(--dragon-red), var(--dragon-crimson));
+            border-color: var(--dragon-gold);
+            color: white;
+        }
+
+        .dragon-stamp {
+            font-size: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-12);
+            margin-bottom: var(--space-24);
+            justify-content: center;
+        }
+
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-16);
+        }
+
+        .table th,
+        .table td {
+            padding: var(--space-12);
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background: var(--dragon-red);
+            color: white;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .table tr:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Utilities */
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-16 {
+            margin-bottom: var(--space-16);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+        }
+
+        /* Success/Error Messages */
+        .message {
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            margin: var(--space-16) 0;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Completion Celebration */
+        .completion-card {
+            background: linear-gradient(135deg, var(--dragon-gold) 0%, #FFE55C 100%);
+            color: var(--dragon-black);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: celebration 2s ease-in-out;
+        }
+
+        @keyframes celebration {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .free-panipuri {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin: var(--space-16) 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-12);
+            }
+
+            .stamps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                margin: var(--space-4) 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐉 RK DRAGON PANIPURI 🐉</h1>
+            <p>6-Day Customer Loyalty Card System</p>
+        </div>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="card">
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="username">Username:</label>
+                    <input type="text" id="username" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password:</label>
+                    <input type="password" id="password" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div id="dashboard" class="hidden">
+            <div class="nav">
+                <button class="btn btn-primary" onclick="showSection('registerSection')">Register Customer</button>
+                <button class="btn btn-primary" onclick="showSection('stampingSection')">Stamp Cards</button>
+                <button class="btn btn-primary" onclick="showSection('recoverySection')">Card Recovery</button>
+                <button class="btn btn-primary" onclick="showSection('adminSection')">Admin Panel</button>
+                <button class="btn btn-secondary" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Customer Registration -->
+            <div id="registerSection" class="card hidden">
+                <h2>Register New Customer</h2>
+                <form id="customerForm">
+                    <div class="form-group">
+                        <label class="form-label" for="customerName">Customer Name:</label>
+                        <input type="text" id="customerName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="customerMobile">Mobile Number:</label>
+                        <input type="tel" id="customerMobile" class="form-input" pattern="[0-9]{10}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Register Customer</button>
+                </form>
+                <div id="registrationResult"></div>
+            </div>
+
+            <!-- ID Card Display -->
+            <div id="idCardSection" class="hidden">
+                <div class="text-center mb-16">
+                    <h2>Customer ID Card Generated!</h2>
+                </div>
+                <div id="idCardContainer"></div>
+                <div class="text-center">
+                    <button class="btn btn-secondary" onclick="downloadCard()">Download Card (JPG)</button>
+                    <button class="btn btn-primary" onclick="showSection('registerSection')">Register Another</button>
+                </div>
+            </div>
+
+            <!-- Stamping Section -->
+            <div id="stampingSection" class="card hidden">
+                <h2>Customer Card Stamping</h2>
+                <div class="form-group">
+                    <label class="form-label" for="searchCustomer">Search Customer (ID or Mobile):</label>
+                    <input type="text" id="searchCustomer" class="form-input" placeholder="Enter RK ID or Mobile Number">
+                    <button class="btn btn-primary" onclick="searchForStamping()">Search</button>
+                </div>
+                <div id="stampingResult"></div>
+            </div>
+
+            <!-- Card Recovery -->
+            <div id="recoverySection" class="card hidden">
+                <h2>Card Recovery</h2>
+                <div class="form-group">
+                    <label class="form-label" for="recoverySearch">Search by ID or Mobile:</label>
+                    <input type="text" id="recoverySearch" class="form-input" placeholder="Enter RK ID or Mobile Number">
+                    <button class="btn btn-primary" onclick="recoverCard()">Recover Card</button>
+                </div>
+                <div id="recoveryResult"></div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="adminSection" class="card hidden">
+                <h2>Admin Panel</h2>
+                <div class="grid-2">
+                    <div>
+                        <h3>Customer Management</h3>
+                        <button class="btn btn-primary btn-full" onclick="viewAllCustomers()">View All Customers</button>
+                        <button class="btn btn-secondary btn-full" onclick="exportCustomers()">Export to CSV</button>
+                        <div class="form-group">
+                            <label class="form-label" for="csvImport">Import CSV:</label>
+                            <input type="file" id="csvImport" accept=".csv" class="form-input">
+                            <button class="btn btn-success" onclick="importCustomers()">Import</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Database Operations</h3>
+                        <button class="btn btn-danger btn-full" onclick="deleteCustomer()">Delete Customer</button>
+                        <button class="btn btn-success btn-full" onclick="backupDatabase()">Backup Database</button>
+                    </div>
+                </div>
+                <div id="adminResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulated Database (In production, this would be Firebase)
+        let database = {
+            customers: {},
+            nextId: 1000
+        };
+
+        // Admin credentials
+        const ADMIN_CREDENTIALS = {
+            username: 'Rajvignesh',
+            password: 'RK1234@'
+        };
+
+        let isLoggedIn = false;
+        let currentCustomer = null;
+
+        // Authentication
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                isLoggedIn = true;
+                document.getElementById('loginSection').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                showSection('registerSection');
+                showMessage('Login successful! Welcome, ' + username, 'success');
+            } else {
+                showMessage('Invalid credentials! Please try again.', 'error');
+            }
+        });
+
+        function logout() {
+            isLoggedIn = false;
+            document.getElementById('loginSection').classList.remove('hidden');
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            hideAllSections();
+        }
+
+        // Utility Functions
+        function showSection(sectionId) {
+            hideAllSections();
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function hideAllSections() {
+            const sections = ['registerSection', 'idCardSection', 'stampingSection', 'recoverySection', 'adminSection'];
+            sections.forEach(section => {
+                document.getElementById(section).classList.add('hidden');
+            });
+        }
+
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = message;
+            document.body.insertBefore(messageDiv, document.body.firstChild);
+            setTimeout(() => messageDiv.remove(), 5000);
+        }
+
+        function generateCustomerId() {
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            return `RK${randomNum}`;
+        }
+
+        function generateUniqueId() {
+            let id;
+            do {
+                id = generateCustomerId();
+            } while (database.customers[id]);
+            return id;
+        }
+
+        // Customer Registration
+        document.getElementById('customerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value.trim();
+            const mobile = document.getElementById('customerMobile').value.trim();
+
+            // Validation
+            if (!name || !mobile) {
+                showMessage('Please fill all fields!', 'error');
+                return;
+            }
+
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                showMessage('Please enter a valid 10-digit mobile number!', 'error');
+                return;
+            }
+
+            // Check if mobile already exists
+            for (let id in database.customers) {
+                if (database.customers[id].mobile === mobile) {
+                    showMessage('Customer with this mobile number already exists!', 'error');
+                    return;
+                }
+            }
+
+            // Create new customer
+            const customerId = generateUniqueId();
+            const customer = {
+                id: customerId,
+                name: name,
+                mobile: mobile,
+                createdDate: new Date().toISOString(),
+                stamps: [false, false, false, false, false, false],
+                completed: false,
+                totalVisits: 0
+            };
+
+            database.customers[customerId] = customer;
+            currentCustomer = customer;
+
+            // Show ID card
+            generateIdCard(customer);
+            showSection('idCardSection');
+            
+            // Clear form
+            document.getElementById('customerForm').reset();
+            showMessage('Customer registered successfully!', 'success');
+        });
+
+        function generateIdCard(customer) {
+            const cardContainer = document.getElementById('idCardContainer');
+            cardContainer.innerHTML = `
+                <div class="id-card" id="customerIdCard">
+                    <div class="id-card-header">
+                        🐉 RK DRAGON PANIPURI 🐉
+                    </div>
+                    <div class="customer-id">
+                        ID: ${customer.id}
+                    </div>
+                    <div>
+                        <strong>Name:</strong> ${customer.name}
+                    </div>
+                    <div style="margin: 8px 0;">
+                        <strong>Mobile:</strong> ${customer.mobile}
+                    </div>
+                    <div style="margin-top: 16px; font-size: 12px; opacity: 0.8;">
+                        6-Day Loyalty Card
+                    </div>
+                    <div style="margin-top: 8px; font-size: 10px; opacity: 0.6;">
+                        Registered: ${new Date(customer.createdDate).toLocaleDateString()}
+                    </div>
+                </div>
+            `;
+        }
+
+        function downloadCard() {
+            // Simulate download functionality
+            showMessage('Card download functionality would be implemented with html2canvas in production!', 'success');
+        }
+
+        // Stamping Functionality
+        function searchForStamping() {
+            const searchTerm = document.getElementById('searchCustomer').value.trim();
+            if (!searchTerm) {
+                showMessage('Please enter search term!', 'error');
+                return;
+            }
+
+            let customer = null;
+            
+            // Search by ID
+            if (database.customers[searchTerm]) {
+                customer = database.customers[searchTerm];
+            } else {
+                // Search by mobile
+                for (let id in database.customers) {
+                    if (database.customers[id].mobile === searchTerm) {
+                        customer = database.customers[id];
+                        break;
+                    }
+                }
+            }
+
+            if (!customer) {
+                document.getElementById('stampingResult').innerHTML = `
+                    <div class="message error">Customer not found!</div>
+                `;
+                return;
+            }
+
+            if (customer.completed) {
+                document.getElementById('stampingResult').innerHTML = `
+                    <div class="completion-card">
+                        <div class="free-panipuri">🎉 CONGRATULATIONS! 🎉</div>
+                        <h3>${customer.name}</h3>
+                        <p>You have completed your 6-day loyalty card!</p>
+                        <div class="free-panipuri">FREE PANIPURI EARNED! 🥟</div>
+                        <p>Enjoy your complimentary panipuri on your next visit!</p>
+                        <button class="btn btn-primary" onclick="resetCustomerCard('${customer.id}')">Start New Card</button>
+                    </div>
+                `;
+                return;
+            }
+
+            displayStampingInterface(customer);
+        }
+
+        function displayStampingInterface(customer) {
+            const stampsHtml = customer.stamps.map((stamped, index) => `
+                <div class="stamp-slot ${stamped ? 'stamped' : ''}" onclick="toggleStamp('${customer.id}', ${index})">
+                    ${stamped ? '<div class="dragon-stamp">🐉</div>' : `<div>Day ${index + 1}</div>`}
+                </div>
+            `).join('');
+
+            document.getElementById('stampingResult').innerHTML = `
+                <div class="card">
+                    <h3>${customer.name} (${customer.id})</h3>
+                    <p>Mobile: ${customer.mobile}</p>
+                    <p>Progress: ${customer.stamps.filter(s => s).length}/6 days</p>
+                    <div class="stamps-grid">
+                        ${stampsHtml}
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-secondary" onclick="completeAllStamps('${customer.id}')">Complete All (Test)</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleStamp(customerId, dayIndex) {
+            const customer = database.customers[customerId];
+            if (!customer) return;
+
+            // Toggle the stamp
+            customer.stamps[dayIndex] = !customer.stamps[dayIndex];
+            
+            // Update total visits
+            customer.totalVisits = customer.stamps.filter(s => s).length;
+
+            // Check if completed
+            if (customer.stamps.every(s => s)) {
+                customer.completed = true;
+                showCompletionMessage(customer);
+            } else {
+                displayStampingInterface(customer);
+            }
+
+            showMessage(customer.stamps[dayIndex] ? 'Stamp added!' : 'Stamp removed!', 'success');
+        }
+
+        function completeAllStamps(customerId) {
+            const customer = database.customers[customerId];
+            if (!customer) return;
+
+            customer.stamps = [true, true, true, true, true, true];
+            customer.totalVisits = 6;
+            customer.completed = true;
+            showCompletionMessage(customer);
+        }
+
+        function showCompletionMessage(customer) {
+            document.getElementById('stampingResult').innerHTML = `
+                <div class="completion-card">
+                    <div class="free-panipuri">🎉 LOYALTY CARD COMPLETED! 🎉</div>
+                    <h3>${customer.name}</h3>
+                    <p>ID: ${customer.id}</p>
+                    <div class="free-panipuri">🥟 FREE PANIPURI EARNED! 🥟</div>
+                    <p>Congratulations! You have successfully completed your 6-day loyalty card.</p>
+                    <p>Present this message to claim your FREE panipuri!</p>
+                    <div style="margin-top: 20px;">
+                        <button class="btn btn-primary" onclick="resetCustomerCard('${customer.id}')">Start New Card</button>
+                        <button class="btn btn-secondary" onclick="generateIdCard(database.customers['${customer.id}']); showSection('idCardSection')">Download Completion Certificate</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function resetCustomerCard(customerId) {
+            const customer = database.customers[customerId];
+            if (!customer) return;
+
+            customer.stamps = [false, false, false, false, false, false];
+            customer.completed = false;
+            customer.totalVisits = 0;
+            
+            displayStampingInterface(customer);
+            showMessage('New loyalty card started for ' + customer.name, 'success');
+        }
+
+        // Card Recovery
+        function recoverCard() {
+            const searchTerm = document.getElementById('recoverySearch').value.trim();
+            if (!searchTerm) {
+                showMessage('Please enter search term!', 'error');
+                return;
+            }
+
+            let customer = null;
+            
+            if (database.customers[searchTerm]) {
+                customer = database.customers[searchTerm];
+            } else {
+                for (let id in database.customers) {
+                    if (database.customers[id].mobile === searchTerm) {
+                        customer = database.customers[id];
+                        break;
+                    }
+                }
+            }
+
+            if (!customer) {
+                document.getElementById('recoveryResult').innerHTML = `
+                    <div class="message error">Customer not found!</div>
+                `;
+                return;
+            }
+
+            document.getElementById('recoveryResult').innerHTML = `
+                <div class="card">
+                    <h3>Customer Found!</h3>
+                    <div class="id-card">
+                        <div class="id-card-header">
+                            🐉 RK DRAGON PANIPURI 🐉
+                        </div>
+                        <div class="customer-id">
+                            ID: ${customer.id}
+                        </div>
+                        <div><strong>Name:</strong> ${customer.name}</div>
+                        <div style="margin: 8px 0;"><strong>Mobile:</strong> ${customer.mobile}</div>
+                        <div style="margin-top: 16px;"><strong>Progress:</strong> ${customer.stamps.filter(s => s).length}/6 days</div>
+                        <div style="margin-top: 8px; font-size: 10px; opacity: 0.6;">
+                            Registered: ${new Date(customer.createdDate).toLocaleDateString()}
+                        </div>
+                    </div>
+                    <div class="text-center" style="margin-top: 20px;">
+                        <button class="btn btn-secondary" onclick="downloadCard()">Download Card</button>
+                        <button class="btn btn-primary" onclick="currentCustomer = database.customers['${customer.id}']; displayStampingInterface(currentCustomer); showSection('stampingSection')">View Stamps</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Admin Functions
+        function viewAllCustomers() {
+            const customers = Object.values(database.customers);
+            if (customers.length === 0) {
+                document.getElementById('adminResult').innerHTML = `
+                    <div class="message error">No customers found!</div>
+                `;
+                return;
+            }
+
+            const tableHtml = `
+                <div class="card">
+                    <h3>All Customers (${customers.length})</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Progress</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${customers.map(customer => `
+                                <tr>
+                                    <td>${customer.id}</td>
+                                    <td>${customer.name}</td>
+                                    <td>${customer.mobile}</td>
+                                    <td>${customer.stamps.filter(s => s).length}/6</td>
+                                    <td>
+                                        <span class="status ${customer.completed ? 'success' : 'info'}">
+                                            ${customer.completed ? 'Completed' : 'Active'}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" style="font-size: 12px; padding: 4px 8px;" onclick="removeCustomer('${customer.id}')">Delete</button>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            document.getElementById('adminResult').innerHTML = tableHtml;
+        }
+
+        function removeCustomer(customerId) {
+            if (confirm('Are you sure you want to delete this customer?')) {
+                delete database.customers[customerId];
+                viewAllCustomers(); // Refresh the list
+                showMessage('Customer deleted successfully!', 'success');
+            }
+        }
+
+        function deleteCustomer() {
+            const customerId = prompt('Enter Customer ID to delete:');
+            if (!customerId) return;
+
+            if (database.customers[customerId]) {
+                if (confirm(`Are you sure you want to delete customer ${customerId}?`)) {
+                    delete database.customers[customerId];
+                    showMessage('Customer deleted successfully!', 'success');
+                }
+            } else {
+                showMessage('Customer not found!', 'error');
+            }
+        }
+
+        function exportCustomers() {
+            const customers = Object.values(database.customers);
+            if (customers.length === 0) {
+                showMessage('No customers to export!', 'error');
+                return;
+            }
+
+            const csvContent = [
+                'ID,Name,Mobile,Stamps,Completed,Created Date',
+                ...customers.map(c => `${c.id},${c.name},${c.mobile},"${c.stamps.join(',')}",${c.completed},${c.createdDate}`)
+            ].join('\n');
+
+            // Simulate CSV download
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `rk-dragon-customers-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+            
+            showMessage('Customer data exported successfully!', 'success');
+        }
+
+        function importCustomers() {
+            const fileInput = document.getElementById('csvImport');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showMessage('Please select a CSV file!', 'error');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const csv = e.target.result;
+                    const lines = csv.split('\n');
+                    const headers = lines[0].split(',');
+                    
+                    let imported = 0;
+                    for (let i = 1; i < lines.length; i++) {
+                        const line = lines[i].trim();
+                        if (!line) continue;
+                        
+                        const values = line.split(',');
+                        if (values.length >= 6) {
+                            const customer = {
+                                id: values[0],
+                                name: values[1],
+                                mobile: values[2],
+                                stamps: values[3].replace(/"/g, '').split(',').map(s => s === 'true'),
+                                completed: values[4] === 'true',
+                                createdDate: values[5],
+                                totalVisits: 0
+                            };
+                            customer.totalVisits = customer.stamps.filter(s => s).length;
+                            database.customers[customer.id] = customer;
+                            imported++;
+                        }
+                    }
+                    
+                    showMessage(`Successfully imported ${imported} customers!`, 'success');
+                    fileInput.value = '';
+                } catch (error) {
+                    showMessage('Error importing CSV file!', 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function backupDatabase() {
+            const backup = {
+                customers: database.customers,
+                backupDate: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            const jsonContent = JSON.stringify(backup, null, 2);
+            const blob = new Blob([jsonContent], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `rk-dragon-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+            
+            showMessage('Database backup created successfully!', 'success');
+        }
+
+        // Initialize app with demo data
+        function initializeDemoData() {
+            const demoCustomers = [
+                {
+                    id: 'RK1001',
+                    name: 'Demo Customer 1',
+                    mobile: '9876543210',
+                    stamps: [true, true, false, false, false, false],
+                    completed: false,
+                    createdDate: new Date().toISOString(),
+                    totalVisits: 2
+                },
+                {
+                    id: 'RK1002', 
+                    name: 'Demo Customer 2',
+                    mobile: '9876543211',
+                    stamps: [true, true, true, true, true, true],
+                    completed: true,
+                    createdDate: new Date().toISOString(),
+                    totalVisits: 6
+                }
+            ];
+
+            demoCustomers.forEach(customer => {
+                database.customers[customer.id] = customer;
+            });
+        }
+
+        // Initialize the app
+        initializeDemoData();
+
+        // Show welcome message
+        setTimeout(() => {
+            showMessage('Welcome to RK Dragon Panipuri Loyalty System! Demo login: Rajvignesh / RK1234@', 'success');
+        }, 1000);
+    </script>
+</body>
+</html>
